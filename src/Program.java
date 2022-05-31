@@ -1,43 +1,32 @@
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
-public class Program {
+public class Program extends Executores {
 
     public static void main(String[] args) {
 
-        Queue<Integer> q = new LinkedList<>();
+        Scanner sc = new Scanner(System.in);
 
-
-        Scanner sc = new Scanner(System.in);;
-
-        //Adicionando 1 milhão de elementos
+        Queue s = new LinkedList();
         for (int i = 1; i <= 10; i++)
         {
-            q.add(i);
+            s.add(i);
         }
 
         System.out.println();
-        System.out.println("Fila com tamanho: '" + q.size() + "' elementos!");
-
-        System.out.println("------------------------------------------------");
-
-        //Mostrar o primeiro elemento
-        System.out.println("Mostrando o primeiro elemento: '" + q.peek() + "'");
+        System.out.println("Coleção com tamanho: '" + s.size() + "' elementos!");
 
         System.out.println("------------------------------------------------");
 
         //Busca de um elemento
         System.out.println("Qual número você quer buscar? ");
         int a = sc.nextInt();
-        q.contains(a);
+        s.contains(a);
         if (true) {
-            System.out.println("Contém o " + a + " na fila!");
+            System.out.println("Contém o '" + a + "' na coleção!");
         } else {
-            System.out.println("Não contém o " + a + " na fila!");
+            System.out.println("Não contém o '" + a + "' na coleção!");
         }
-
+        System.out.println();
 
         System.out.println("------------------------------------------------");
 
@@ -47,31 +36,30 @@ public class Program {
         //Inserção no final da coleção
         System.out.println("Qual número você quer inserir? ");
         int n = sc.nextInt();
-        q.add(n);
+        s.add(n);
 
         System.out.println("------------------------------------------------");
 
-        System.out.println("Conteúdo da fila: ");
-        Iterator itr = q.iterator();
+        System.out.println("Conteúdo da coleção: ");
+        Iterator itr = s.iterator();
         while(itr.hasNext()) {
             Object element = itr.next();
             System.out.print(element + " ");
         }
-
         System.out.println();
+
         System.out.println("------------------------------------------------");
 
         //Remoção de um elemento no meio da coleção
         System.out.println("Qual elemento deseja remover? ");
         int m = sc.nextInt();
-        q.remove(m);
-
+        s.remove(m);
 
         System.out.println();
         System.out.println("------------------------------------------------");
 
-        System.out.println("Conteúdo da fila: ");
-        Iterator abc = q.iterator();
+        System.out.println("Conteúdo da coleção: ");
+        Iterator abc = s.iterator();
         while(abc.hasNext()) {
             Object element = abc.next();
             System.out.print(element + " ");
@@ -82,23 +70,26 @@ public class Program {
 
         //Remoção de todos elementos  da coleção
         System.out.println();
-        System.out.println("Voce quer esvaziar a fila? (Y/N)? ");
+        System.out.println("Voce quer esvaziar a coleção? (Y/N)? ");
         char clear = sc.next().charAt(0);
         if (clear == 'Y') {
-            q.clear();
+            Executores.comecar();
+            s.clear();
             System.out.println("------------------------------------------------");
-            System.out.println("fila vazia!");
+            System.out.println("Coleção vazia!");
+            Executores.parar();
         } else   {
-            Iterator aa = q.iterator();
+            Executores.comecar();
+            Iterator aa = s.iterator();
             while(aa.hasNext()) {
                 Object element = aa.next();
                 System.out.print(element + " ");
             }
             System.out.println();
-
+            Executores.parar();
         }
 
-        System.out.println("------------------------------------------------");
+
 
         sc.close();
 
